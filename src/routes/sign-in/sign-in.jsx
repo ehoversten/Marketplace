@@ -1,11 +1,11 @@
 import { Fragment } from "react";
-import { signInWithGooglePopup } from "../../utils/firebase/firebase";
+import { signInWithGooglePopup, createUserDocumentFromAuth } from "../../utils/firebase/firebase";
 
 const SignIn = () => {
 
     const logGoogleUser = async () => {
-        const res = await signInWithGooglePopup();
-        console.log(res);
+        const { user } = await signInWithGooglePopup();
+        const userDocRef = await createUserDocumentFromAuth(user);
     }
 
     return (
