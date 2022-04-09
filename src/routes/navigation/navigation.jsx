@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { ReactComponent as Logo } from '../../../assets/crown.svg';
+import { ReactComponent as Logo } from '../../assets/crown.svg';
 import './navigation.styles.scss';
 
 const Navigation = () => {
