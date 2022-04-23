@@ -1,8 +1,8 @@
 import { confirmPasswordReset } from "@firebase/auth";
 import { Fragment, useState } from "react";
-import { createUserWithEmailAndPassword } from "../../utils/firebase";
+import { createUserWithEmailAndPassword } from "../../utils/firebase/firebase";
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase";
-
+import FormInput from "../../components/form-input/form-input.component";
 
 const defaultFormFields = {
     displayName: '',
@@ -46,7 +46,7 @@ const Register = () => {
     const handleChange = (event) => {
         const { name, value } = event.target;
 
-        setFormFields({...formFields, [name]: value });
+        setFormFields({ ...formFields, [name]: value });
     }
 
     return (
@@ -64,6 +64,38 @@ const Register = () => {
 
                 <label>Confirm Password</label>
                 <input type="password" onChange={handleChange} name="confirmPassword" value={confirmPassword} required/>
+
+                <FormInput 
+                    label="Display Name"
+                    type="text"
+                    onChange={handleChange}
+                    name="displayName"
+                    value={displayName}
+                />
+
+                <FormInput 
+                    label="Email"
+                    type="email"
+                    onChange={handleChange}
+                    name="email"
+                    value={email}
+                />
+
+                <FormInput 
+                    label="Password"
+                    type="password"
+                    onChange={handleChange}
+                    name="password"
+                    value={password}
+                />
+
+                <FormInput 
+                    label="Confirm Password"
+                    type="password"
+                    onChange={handleChange}
+                    name="confirmPassword"
+                    value={confirmPassword}
+                />
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
