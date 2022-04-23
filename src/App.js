@@ -2,8 +2,8 @@ import './App.css';
 import { Routes, Route, Outlet } from 'react-router-dom'; 
 import Navigation from './routes/navigation/navigation';
 import Home from './routes/home/home'; 
-import SignIn from './routes/sign-in/sign-in';
-import Register from './routes/sign-in/register';
+import SignIn from './routes/auth/sign-in';
+import Register from './routes/auth/register';
 
 const Shop = () => {
   return (
