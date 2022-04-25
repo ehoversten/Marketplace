@@ -1,10 +1,13 @@
 import { confirmPasswordReset } from "@firebase/auth";
-import { Fragment, useState } from "react";
-import './auth.styles.scss';
+import { Fragment, useState, useContext } from "react";
 import { createUserWithEmailAndPassword } from "../../utils/firebase/firebase";
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase";
 import FormInput from "../../components/form-input/form-input.component";
 import Button from '../../components/button/button.component';
+
+import { UserContext } from "../../contexts/user.context";
+
+import './auth.styles.scss';
 
 const defaultFormFields = {
     displayName: '',
@@ -17,6 +20,8 @@ const Register = () => {
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
+
+    const { setCurrentUser } = useContext(UserContext);
 
     console.log(formFields);
 
@@ -34,6 +39,8 @@ const Register = () => {
 
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password);
+
+            setCurrentUser(user);
             
             await createUserDocumentFromAuth(user, { displayName });
             resetFormFileds();
