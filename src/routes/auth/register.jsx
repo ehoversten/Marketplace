@@ -5,7 +5,7 @@ import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "
 import FormInput from "../../components/form-input/form-input.component";
 import Button from '../../components/button/button.component';
 
-import { UserContext } from "../../contexts/user.context";
+// import { UserContext } from "../../contexts/user.context";
 
 import './auth.styles.scss';
 
@@ -21,7 +21,7 @@ const Register = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
 
-    const { setCurrentUser } = useContext(UserContext);
+    // const { setCurrentUser } = useContext(UserContext);
 
     console.log(formFields);
 
@@ -41,7 +41,7 @@ const Register = () => {
             const { user } = await createAuthUserWithEmailAndPassword(email, password);
 
             // console.log(user);
-            setCurrentUser(user);
+            // setCurrentUser(user);
             
             await createUserDocumentFromAuth(user, { displayName });
             resetFormFileds();

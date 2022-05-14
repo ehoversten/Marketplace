@@ -1,10 +1,16 @@
 import { Fragment, useState, useContext } from "react";
 import './auth.styles.scss';
-import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase";
+import { 
+    signInWithGooglePopup, 
+    createUserDocumentFromAuth, 
+    signInAuthUserWithEmailAndPassword ,
+
+} from "../../utils/firebase/firebase";
+
 import FormInput from "../../components/form-input/form-input.component";
 import Button from "../../components/button/button.component";
 
-import { UserContext } from "../../contexts/user.context";
+// import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
     email: '',
@@ -16,7 +22,7 @@ const SignIn = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
-    const { setCurrentUser } = useContext(UserContext);
+    // const { setCurrentUser } = useContext(UserContext);
 
     const resetFormFileds = () => {
         setFormFields(defaultFormFields);
@@ -36,8 +42,8 @@ const SignIn = () => {
             // console.log(response);
 
             const { user } = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(user);
-            setCurrentUser(user);
+            // console.log(user);
+            // setCurrentUser(user);
 
             resetFormFileds();
 
@@ -58,9 +64,9 @@ const SignIn = () => {
 
     const signInWithGoogle = async () => {
         const { user } = await signInWithGooglePopup();
-        setCurrentUser(user);
+        // setCurrentUser(user);
         createUserDocumentFromAuth(user);
-        
+
         // Redirect to Shop
     }
 
