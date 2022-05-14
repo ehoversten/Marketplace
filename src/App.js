@@ -3,16 +3,9 @@ import Navigation from './routes/navigation/navigation';
 import Home from './routes/home/home'; 
 import SignIn from './routes/auth/sign-in';
 import Register from './routes/auth/register';
+import Shop from './routes/shop/shop';
 
 import './App.css';
-
-const Shop = () => {
-  return (
-    <div className="shop-component">
-      Shop Component
-    </div>
-  )
-}
 
 const App = () => {
   return (
