@@ -32,13 +32,27 @@ const SignIn = () => {
         event.preventDefault();
 
         try {
+            // const response = await signInAuthUserWithEmailAndPassword(email, password);
+            // console.log(response);
+
             const { user } = await signInAuthUserWithEmailAndPassword(email, password);
             console.log(user);
             setCurrentUser(user);
 
             resetFormFileds();
+
+            // Redirect to Shop
         } catch(error) {
-            console.log(error);
+            switch(error.code) {
+                case 'auth/wrong-password':
+                    alert('invalid credentials');
+                    break;
+                case 'auth/user-not-found': 
+                    alert('invalid user');
+                    break;
+                default: 
+                    console.log(error);
+            }
         }
     }
 
@@ -46,6 +60,8 @@ const SignIn = () => {
         const { user } = await signInWithGooglePopup();
         setCurrentUser(user);
         createUserDocumentFromAuth(user);
+        
+        // Redirect to Shop
     }
 
     return (
@@ -71,7 +87,7 @@ const SignIn = () => {
                 </form>
 
                 <div className="buttons-container">
-                    <Button onSubmit={handleSubmit}>Sign In</Button>
+                    <Button onClick={handleSubmit}>Sign In</Button>
                     <Button type="button" buttonType="google" onClick={signInWithGoogle}>Sign In with Google</Button>
                 </div>
             </div>
