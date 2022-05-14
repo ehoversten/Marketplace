@@ -40,6 +40,11 @@ const Register = () => {
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password);
 
+            // const response = await createAuthUserWithEmailAndPassword(email, password);
+            // console.log("Response from handleSubmit function in Register Component");
+            // console.log(response);
+
+            console.log(user);
             setCurrentUser(user);
             
             await createUserDocumentFromAuth(user, { displayName });

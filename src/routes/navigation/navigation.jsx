@@ -14,30 +14,31 @@ const Navigation = () => {
     console.log(res);
     setCurrentUser(null);
   }
-    return (
-      <Fragment>
-        <div className="navigation">
-            <Link className="logo-container" to="/">
-                <Logo className="logo"/>
-            </Link>
-            <div className="nav-links-container">
-                <Link className="nav-link" to="/home">Home</Link>
-                <Link className="nav-link" to="/shop">Shop</Link>
-                {
-                  currentUser ? (
-                    <span className="nav-link" onClick={handleSignOutHandler}>Sign Out</span>
-                  ) : (
-                    <Fragment>
-                      <Link className="nav-link" to="/sign-in">Sign In</Link>
-                      <Link className="nav-link" to="/register">Sign Up</Link>
-                    </Fragment>
-                    )
-                  }
-            </div>
-        </div>
-        <Outlet />
-      </Fragment>
-    )
-  }
+
+  return (
+    <Fragment>
+      <div className="navigation">
+          <Link className="logo-container" to="/">
+              <Logo className="logo"/>
+          </Link>
+          <div className="nav-links-container">
+              <Link className="nav-link" to="/home">Home</Link>
+              <Link className="nav-link" to="/shop">Shop</Link>
+              {
+                currentUser ? (
+                  <span className="nav-link" onClick={signOutHandler}>Sign Out</span>
+                ) : (
+                  <Fragment>
+                    <Link className="nav-link" to="/sign-in">Sign In</Link>
+                    <Link className="nav-link" to="/register">Sign Up</Link>
+                  </Fragment>
+                  )
+                }
+          </div>
+      </div>
+      <Outlet />
+    </Fragment>
+  )
+}
 
   export default Navigation;

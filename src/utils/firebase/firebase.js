@@ -7,6 +7,7 @@ import { getAuth,
         signInWithEmailAndPassword,
         signOut
     } from 'firebase/auth';
+
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -60,6 +61,10 @@ export const createUserDocumentFromAuth = async (userAuth, addInfo = {}) => {
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
     if(!email || !password) return;
+
+    // const response = await createUserWithEmailAndPassword(auth, email, password);
+    // console.log("Response from Firebase Util");
+    // console.log(response);
 
     return await createUserWithEmailAndPassword(auth, email, password);
 };
