@@ -6,16 +6,29 @@ const addCartItem = (cartItems, productToAdd) => {
     const existingCartItem = cartItems.find((cartItem) => {
         return cartItem.id === productToAdd.id;
     });
-
     // if found, increment quantity
     if(existingCartItem) {
         return cartItems.map((cartItem) =>
             cartItem.id === productToAdd.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem);
     }
-
     // return new array with modified cartitems/ new cart item
     return [...cartItems, { ...productToAdd, quantity: 1 }];
-    
+}
+
+const removeCartItem = (cartItems, cartItemToRemove) => {
+    // find item to remove
+    const itemToRemove = cartItems.find((cartItem) => cartItem.id === cartItemToRemove.id);
+    // check if quantity is equal to 1, if YES remove item from cart
+    if(itemToRemove.quantity === 1) {
+        return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
+    }
+    // return back cart items with matching cart item reduced quantity
+    return cartItems.map((cartItem) =>
+            cartItem.id === cartItemToRemove.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem);
+}
+
+const clearCartItem = (cartItems, cartItemToClear) => {
+    return cartItems.filter(cartItem => cartItem.id !== cartItemToClear.id);
 }
 
 export const CartContext = createContext({
@@ -23,6 +36,8 @@ export const CartContext = createContext({
     setIsCartOpen: () => {},
     cartItems: [],
     addItemToCart: () => {},
+    removeItemFromCart: () => {},
+    clearItemsFromCart: () => {},
     cartCount: 0
 });
 
@@ -41,7 +56,15 @@ export const CartProvider = ({children}) => {
         setCartItems(addCartItem(cartItems, productToAdd));
     }
 
-    const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems, cartCount };
+    const removeItemFromCart = (productToRemove) => {
+        setCartItems(removeCartItem(cartItems, productToRemove));
+    }
+
+    const clearItemsFromCart = (productToRemove) => {
+        setCartItems(clearCartItem(cartItems, productToRemove));
+    }
+
+    const value = {isCartOpen, setIsCartOpen, addItemToCart, cartItems, cartCount, removeItemFromCart, clearItemsFromCart };
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 } 

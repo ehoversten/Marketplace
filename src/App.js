@@ -4,6 +4,7 @@ import Home from './routes/home/home';
 import SignIn from './routes/auth/sign-in';
 import Register from './routes/auth/register';
 import Shop from './routes/shop/shop';
+import Checkout from './components/checkout/checkout';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ const App = () => {
         <Route path='shop' element={ <Shop /> } />
         <Route path='sign-in' element={ <SignIn /> } />
         <Route path='register' element={ <Register /> } />
+        <Route path='checkout' element={ <Checkout />} />
       </Route>  
     </Routes>
   );
