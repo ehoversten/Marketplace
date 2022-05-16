@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 import CheckoutItem from '../checkout-item/checkout-item';
 import './checkout.styles.scss';
@@ -7,7 +7,7 @@ import './checkout.styles.scss';
 const Checkout = () => {
 
     // const [cartItems, setCartItems] = useState([]);
-    const { cartItems, addItemToCart, removeItemFromCart } = useContext(CartContext);
+    const { cartItems, cartTotal } = useContext(CartContext);
 
     return (
         <div className="checkout-container">
@@ -37,7 +37,7 @@ const Checkout = () => {
                 )
             })}
 
-            <span className="total">Total - $0.00</span>
+            <span className="total">Total - ${cartTotal}</span>
         </div>
     )
 }
