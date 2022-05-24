@@ -4,7 +4,7 @@ import './directory-item.styles.scss';
 const DirectoryItem = ({ category }) => {
     const { imageUrl, title } = category;
     return (
-        <Link to={title} className="directory-item-container">
+        <Link to='/shop' className="directory-item-container">
             <div 
                 className="background-image" 
                 style={{ backgroundImage: `url(${imageUrl})`}}>
