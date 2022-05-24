@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Ecommerce Marketplace
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![language](https://img.shields.io/badge/Language-JavaScript-yellow)
+<!-- ![server](https://img.shields.io/badge/Backend-Node/Express-green) -->
+![frontend](https://img.shields.io/badge/Frontend-React-blue)
+![database](https://img.shields.io/badge/Database-Firestore-red)
+![auth](https://img.shields.io/badge/Auth-Firebase-orange)
+![API](https://img.shields.io/badge/API-Stripe-red)
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+This is a React Ecommerce application. This application allows a User to sign up/in to the martketplace store. Once authorized a user has the ability to add or remove items to their respective shopping cart. When a users shopping cart is full they will have the ability to checkout using the StripeAPI.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Plan to update application with GraphQL backend coming soon.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+[Ecommerce Marketplace](https://)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+&nbsp;
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A User Can:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Register
+- Login
+- Add Items to their Cart User
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+An Item Can:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Be Added to the current Users Cart
+- Be Removed from the current Users Cart
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+&nbsp;
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Installation
 
-## Learn More
+Start by cloning the project Repo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+$> git clone https://github.com/ehoversten/Marketplace
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Install project dependencies
 
-### Code Splitting
+```javascript
+$> cd marketplace
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+$> npm install
+// OR using YARN
+$> yarn install
+```
 
-### Analyzing the Bundle Size
+Run the application locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```javascript
+$> npm run start
+```
 
-### Making a Progressive Web App
+&nbsp;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Deployment
 
-### Advanced Configuration
+Deployed to Netlify. Deployment with Docker and AWS coming
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+&nbsp;
 
-### Deployment
+## Built With
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [JavaScript]() - Development Language
+- [React]() - Frontend 
+- [Firestore Database]() - Cloud Database Storage
+- [Firebase]() - Database ORM
+- [Firebase Autherntication]() - User Authentication using Firebase
 
-### `npm run build` fails to minify
+&nbsp;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Versioning
+
+Version 1.0
+
+&nbsp;
+
+## Authors
+
+- **Erik Hoversten** - GitHub: [ehoversten](https://github.com/ehoversten)
+
+
+&nbsp;
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
