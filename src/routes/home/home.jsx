@@ -5,7 +5,7 @@ const Home = () => {
 
   return (
     <div className="App">
-      <h1>Ecomm Market Place</h1>
+      <h1>eComm Market Place</h1>
       <Directory />
       <Outlet />
     </div>

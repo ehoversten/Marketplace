@@ -6,9 +6,7 @@ import './checkout.styles.scss';
 
 const Checkout = () => {
 
-    // const [cartItems, setCartItems] = useState([]);
     const { cartItems, cartTotal, isCartOpen, setIsCartOpen } = useContext(CartContext);
-    // const { isCartOpen, setIsCartOpen } = useContext
 
     useEffect(() => {
         if(isCartOpen) {
@@ -18,7 +16,7 @@ const Checkout = () => {
 
     return (
         <div className="checkout-container">
-            <h1>Weclome to the Checkout Page</h1>
+            <h1>Welcome to the Checkout Page</h1>
             <div className="checkout-header">
                 <div className="header-block">
                     <span>Product</span>
